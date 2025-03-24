@@ -1,33 +1,33 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Car {
+    private String name;
+    private int position = 0;
 
-    public String getCar(String carName){
-        return carName;
+    public Car(String name){
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("오류: 문자열은 최대 5글자까지만 입력할 수 있습니다.");
+        }
+        this.name = name;
     }
 
-    public void writeName(){ //차 이름 받기
-        String cars = readLine();
-        String[] carArr = cars.split(",");
-        List<Car> carList = new ArrayList<>();
-
-        for (int i =0; i < carList.size(); i++){ //리스트에 차 이름 넣기
-            carList.get(i);
+    public void move(){
+        if (pickNumberInRange(0, 9) >= 4) {
+           position += 1;
         }
     }
 
-    public void moveCar(int position){ //차 움직이기
-        int rand = pickNumberInRange(1, 9);
-
-        if(rand >= 4){
-            position +=1;
-        }
+    public String getPositionToString(){
+        return "-".repeat(position);
     }
 
+    public String getName(){
+        return name;
+    }
 
+    public int getPosition() {
+        return position;
+    }
 }
