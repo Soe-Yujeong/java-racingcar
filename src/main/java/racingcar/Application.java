@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
@@ -27,22 +26,8 @@ public class Application {
             System.out.println();
         }
 
-        int winnerPosition = 0;
-
-        for (Car car: cars){
-            if (car.getPosition() > winnerPosition) {
-                winnerPosition = car.getPosition();
-            }
-        }
-
-        List<String> winCars = new ArrayList<>();
-
-        for (Car car: cars){
-            if (car.getPosition() == winnerPosition) {
-                winCars.add(car.getName());
-            }
-        }
-
-        System.out.print("최종 우승자 : " + String.join(", ", winCars));
+        GameResult gameResult = new GameResult();
+        gameResult.getWinners();
+        System.out.print("최종 우승자 : " + String.join(", ") + gameResult.getWinners());
     }
 }

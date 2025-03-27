@@ -13,6 +13,10 @@ public class Car {
         this.name = name;
     }
 
+    public Car(int position){
+        this.position = position;
+    }
+
     public void move(){
         if (pickNumberInRange(0, 9) >= 4) {
            position += 1;
